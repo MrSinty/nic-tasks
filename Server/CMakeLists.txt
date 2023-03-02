@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.8)
+project(server)
+
+set(BOOST_ROOT /usr/include/boost)
+set(Boost_USE_STATIC_LIBS ON)
+find_package(Boost 1.70.0 REQUIRED COMPONENTS system thread)
+set(SOURCES ServerAsync.cpp ${YOUR_DIRECTORY}ServerAsync.h)
+include_directories(${Boost_INCLUDE_DIRS})
+add_executable(server ${SOURCES})
+target_link_libraries(server ${Boost_LIBRARIES})
